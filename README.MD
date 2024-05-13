@@ -7,6 +7,8 @@
 * Computer > Administrative Templates > Windows Components > Windows Copilot and enable “Turn off Windows Copilot"
 
 * -------debian-------
+* --------dns---------
+* sudo docker run -d --name bind9 -e TZ=UTC -p 53:53/udp --volume /etc/bind/db.harukontor:/etc/bind/db.harukontor --volume /etc/bind/named.conf.default-zones:/etc/bind/named.conf.default-zones ubuntu/bind9
 * ------wordpress-----
 * sudo apt install php libapache2-mod-php php-mysql
 * sudo systemctl restart apache2
@@ -31,9 +33,9 @@
 * allow_writeable_chroot=YES
 * local_root=/var/ftp/files
 * ---------------------------------
-* sudo mkdir -p /var/ftp/files
-* sudo chown nobody:nogroup /var/ftp/files
-* sudo chmod a-w /var/ftp/files
+* sudo mkdir /var/ftp/files
+* sudo chown arendaja:arendaja /var/ftp/files
+* sudo chmod 750 -R /var/ftp
 * sudo useradd -d /var/ftp/files -s /sbin/bash arendaja
 * sudo passwd arendaja
 * sudo systemctl restart vsftpd
